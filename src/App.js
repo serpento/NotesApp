@@ -9,7 +9,7 @@ function App () {
 
 
   return (
-    <div class="App-wrapper">
+    <div className="App-wrapper">
       <Header isLoggedIn={isLoggedIn} />
       <Content isLoggedIn={isLoggedIn} />
       <Footer />
