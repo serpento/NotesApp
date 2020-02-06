@@ -1,3 +1,5 @@
 .App-content {
+    width: 70%;
+    margin: 30px auto;
     flex-grow: 1;
 }

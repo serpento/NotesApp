@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import './Content.css';
 import List from './List.js';
 import Open from './Open.js';
-import Edit from './Edit.js';
 
 function Content (props) {
 
@@ -15,7 +14,6 @@ function Content (props) {
     return (
         <div className="App-content">
             { page.slug == 'list' &&  <List updatePage={ updatePage }/>}
-            { page.slug == 'edit' &&  <Edit updatePage={ updatePage }/>}
             { page.slug == 'open' &&  <Open updatePage={ updatePage } { ...page } />}
         </div>
       )
