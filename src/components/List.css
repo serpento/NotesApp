@@ -1,0 +1,27 @@
+.App-content {
+    width: 70%;
+    margin: 0 auto;
+}
+
+.App-content ul {
+    list-style-type: none;
+}
+
+.App-content li {    
+    border: 1px solid blue;
+    margin-bottom: 25px ;
+}
+
+.App-content li a {
+    text-decoration: none;
+    color: black;
+    padding: 10px 20px;
+    display: block;
+    background: #E0FFFF;
+}
+
+.App-content li a:hover{
+    background: #AFEEEE;
+}
+
+

@@ -3,7 +3,7 @@ import './Content.css';
 import List from './List.js';
 import Open from './Open.js';
 
-function Content () {
+function Content (props) {
 
     const [page, setPage] = useState({ slug: 'list', id: null });
 
