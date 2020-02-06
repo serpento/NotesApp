@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from 'react';
 import './List.css';
-import Note from './Note.js';
 
 function List (props) {
 
