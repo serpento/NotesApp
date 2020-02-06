@@ -28,7 +28,7 @@ function Open (props) {
 
     return (
         <div>
-            {!editing && <div>
+            {!editing && <div className="noteOpened">
                 <span>User id: { openNote.userId }</span>
                 <h2>{ openNote.title }</h2>
                 <p>{ openNote.body }</p> 

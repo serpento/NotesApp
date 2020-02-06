@@ -7,11 +7,12 @@ body {
   padding: 0;
   font-family: sans-serif;
   height: 100%;
+  background: #FFF0F5
 }
 
 .button {
   border-radius: 10px;
-  background: #008080;
+  background: #EEE8AA;
   line-height: 20px;
   height: 30px;
   padding: 5px;
@@ -23,7 +24,7 @@ body {
 }
 
 .button:hover {
-  background: #20B2AA;
+  background: #FFDAB9;
 }
 
 button, 
