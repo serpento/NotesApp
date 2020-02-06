@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import List from './List.js';
-import Content from './Content.js';
+import './Open.css';
 
 function Open (props) {
 
@@ -28,7 +27,7 @@ function Open (props) {
             </div>}
             
 
-            {editing && <form>
+            {editing && <form className="editNote">
                 <textarea defaultValue={ openNote.body }></textarea>
                 <button className="saveButton">Save</button>
             </form>}
