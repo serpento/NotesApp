@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header.js';
 import Content from './components/Content.js';
 import Footer from './components/Footer.js';
+import "abortcontroller-polyfill";
 
 function App () {
   const [isLoggedIn, setLoggedIn] = useState(false);

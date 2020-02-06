@@ -1,6 +1,5 @@
 import React, { useState, useEffect} from 'react';
 import './List.css';
-import "abortcontroller-polyfill";
 
 function List (props) {
 
@@ -17,14 +16,13 @@ function List (props) {
         return () => {
           abortController.abort();
         };
-      }, ['https://jsonplaceholder.typicode.com/posts']);
-
+      }, []);
 
 
     return (
 
         <ul>
-            { notes.map((note) => <li key={ note.id.toString() }>
+            { notes.filter((note) => note.id !== props.id).map((note) => <li key={ note.id.toString() }>
                 <a href="#" onClick={() => props.updatePage({ slug: 'open', id: note.id })}>{ note.title }</a>
              </li>) }
         </ul>
