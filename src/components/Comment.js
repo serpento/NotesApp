@@ -1,45 +1,45 @@
 import React, { useState } from "react";
 import "./Comment.css";
 
-function Comment() {
+function Comment(props) {
+  const [comments, setComments] = useState([]);
 
-        const [comments, setComments] = useState([]);
+  const [comment, setComment] = useState("");
 
-        const [comment, setComment] = useState('');
+  function saveComment(e) {
+    setComment(e.target.value);
+  }
 
-        const [user, setUser] = useState('');
+  function storeComment(e) {
+    e.preventDefault();
+    setComments([...comments, { text: comment, user: props.userId }]);
+    setComment("");
+  }
 
-        function saveComment(e) {
-            setComment(e.target.value);
-        }
+  return (
+    <div className="noteComments">
+      <div>
+        <p>
+          <label>Comment:</label>
+          <textarea onChange={saveComment} value={comment} />
+        </p>
 
-        function saveUser(e) {
-            setUser(e.target.value);
-        }
-
-        function storeComment(e) {
-            e.preventDefault();
-            setComments([...comments, { text: comment, user: user}]);
-            setComment('');
-            setUser('');
-        }
-
-        return (
-            <div>
-                <div>
-                    <label>User:</label><br/>
-                    <input onChange={saveUser} value={user}/>
-                    <br/>
-                    <label>Comment:</label><br/>
-                    <textarea onChange={saveComment} value={comment}/>
-                    <br/>
-                    <button className="saveButton button" onClick={storeComment}>Send</button>
-                </div>
-                <div>
-                    { comments.map((comment, i) => <p key={i.toString()}><b>{comment.user}:</b> {comment.text}</p>) }
-                </div>
-            </div>
-        )
-    }
+        <button className="saveButton button" onClick={storeComment}>
+          Send
+        </button>
+      </div>
+      <ul>
+        {comments.map((comment, i) => (
+          <li key={i.toString()}>
+            <span>
+              <b>{comment.user}</b>
+            </span>
+            <hr></hr> <p>{comment.text}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+  );
+}
 
 export default Comment;

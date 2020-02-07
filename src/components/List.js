@@ -38,7 +38,7 @@ function List(props) {
                   <a
                     href="#"
                     onClick={() => props.updatePage({ slug: "open", id: note.id })}>
-                    {note.title}
+                    {note.title} {note.id}
                   </a>
                 </li>
               ))}

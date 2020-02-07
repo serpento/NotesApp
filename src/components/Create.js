@@ -21,7 +21,7 @@ function Create(props) {
 
   function storeText(e) {
     e.preventDefault();
-    props.updateNotes({ title: noteTitle, body: noteText, userId: user, id: 100500});
+    props.updateNotes({ title: noteTitle, body: noteText, userId: user, id: Math.floor(Math.random() * 100) + 100});
     setUser('');
     setNoteTitle('');
     setNoteText('');

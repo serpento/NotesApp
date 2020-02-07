@@ -1,11 +1,11 @@
 import React from 'react';
 import './Header.css';
 
-function Header () {
+function Header (props) {
 
   return (
     <div className="App-header">
-        Header
+        {props.userId && <p>Welcome, {props.userId}</p>}
     </div>
   )
 }

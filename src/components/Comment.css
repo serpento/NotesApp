@@ -1,0 +1,11 @@
+.noteComments li {
+    padding: 10px;
+    border-radius: 10px;
+    background: #E0FFFF;
+    margin-bottom: 10px;
+}
+
+.noteComments li span {
+    font-style: italic;
+    font-size: 10px;
+}

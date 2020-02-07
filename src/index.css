@@ -21,6 +21,8 @@ body {
   margin-right: 10px;
   cursor: pointer;
   min-width: 55px;
+  margin-bottom: 20px;
+  text-decoration: none;
 }
 
 .button:hover {

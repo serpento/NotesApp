@@ -31,27 +31,35 @@ function Open(props) {
     <div>
       {!editing && (
         <div>
-            <div className="noteOpened">
-                <span>User id: {openNote.userId}</span>
-                <h2>{openNote.title}</h2>
-                <p>{openNote.body}</p>
-                <button
-                    className="backButton button"
-                    onClick={() => props.updatePage({ slug: "list", id: null })}
-                >
-                    Back to list
-                </button>
-                <button
-                    className="editButton button"
-                    onClick={() => setEditing(true)}
-                >
-                    Edit note
-                </button>
-                <button className="deleteButton button" onClick={() => deleteNote()}>
-                    Delete note
-                </button>
-            </div>
-            <Comment />
+          <div className="noteOpened">
+            <span>User id: {openNote.userId}</span>
+            <h2>{openNote.title}</h2>
+            <p>{openNote.body}</p>
+            <button
+              className="backButton button"
+              onClick={() => props.updatePage({ slug: "list", id: null })}
+            >
+              Back to list
+            </button>
+            {props.userId && (
+              <button
+                className="editButton button"
+                onClick={() => setEditing(true)}
+              >
+                Edit note
+              </button>
+            )}
+
+            {props.userId && (
+              <button
+                className="deleteButton button"
+                onClick={() => deleteNote()}
+              >
+                Delete note
+              </button>
+            )}
+          </div>
+          {props.userId && (<Comment userId={props.userId} />)}
         </div>
       )}
 

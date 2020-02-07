@@ -1,21 +1,24 @@
-import React, { useState } from 'react';
-import './App.css';
-import Header from './components/Header.js';
-import Content from './components/Content.js';
-import Footer from './components/Footer.js';
+import React, { useState } from "react";
 import "abortcontroller-polyfill";
+import "./App.css";
+import Header from "./components/Header.js";
+import Content from "./components/Content.js";
+import Footer from "./components/Footer.js";
 
-function App () {
-  const [isLoggedIn, setLoggedIn] = useState(false);
+function App() {
+  const [userID, setUserID] = useState(null);
 
+  function saveUserId(id) {
+    setUserID(id);
+  }
 
   return (
     <div className="App-wrapper">
-      <Header isLoggedIn={isLoggedIn} />
-      <Content isLoggedIn={isLoggedIn} />
+      <Header userId={userID} />
+      <Content userId={userID} saveUserId={saveUserId} />
       <Footer />
     </div>
-  )
+  );
 }
 
 export default App;

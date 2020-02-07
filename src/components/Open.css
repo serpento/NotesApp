@@ -1,5 +1,7 @@
 .noteOpened {
     background: #E0FFFF;
+    padding: 15px;
+    border-radius: 10px;
 }
 
 .editNote textarea {
