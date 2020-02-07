@@ -3,14 +3,9 @@ import React, { useState } from "react";
 
 function Create(props) {
 
-  const [user, setUser] = useState(''); 
   const [noteTitle, setNoteTitle] = useState(''); 
   const [noteText, setNoteText] = useState(''); 
 
-
-  function saveUser(e) {
-    setUser(e.target.value);
-  }
   function saveTitle(e) {
     setNoteTitle(e.target.value);
   }
@@ -21,8 +16,7 @@ function Create(props) {
 
   function storeText(e) {
     e.preventDefault();
-    props.updateNotes({ title: noteTitle, body: noteText, userId: user, id: Math.floor(Math.random() * 100) + 100});
-    setUser('');
+    props.updateNotes({ title: noteTitle, body: noteText, userId: props.userId, id: Math.floor(Math.random() * 100) + 100});
     setNoteTitle('');
     setNoteText('');
   }
@@ -31,10 +25,6 @@ function Create(props) {
     <div>
       <div className="createNote">
           <form>
-            <p>
-              <label>User:</label>
-              <input onChange={saveUser} value={user}/>
-            </p>
             <p>
               <label>Note title:</label>
               <input onChange={saveTitle} value={noteTitle}/>

@@ -3,9 +3,18 @@ import "./Open.css";
 import Comment from "./Comment.js";
 
 function Open(props) {
-  const [openNote, setOpenNote] = useState([]);
+  const [note, setNote] = useState({});
 
   const [editing, setEditing] = useState(false);
+
+  const [title, setTitle] = useState("");
+  const [body, setBody] = useState("");
+
+  function saveNote(e) {
+    e.preventDefault();
+    setNote({ ...note, body: body || note.body, title: title || note.title});
+    setEditing(false)
+  }
 
   function deleteNote() {
     fetch(`https://jsonplaceholder.typicode.com/posts/${props.id}`, {
@@ -20,7 +29,7 @@ function Open(props) {
       signal: abortController.signal
     })
       .then(response => response.json())
-      .then(json => setOpenNote(json));
+      .then(json => setNote(json));
 
     return () => {
       abortController.abort();
@@ -32,9 +41,8 @@ function Open(props) {
       {!editing && (
         <div>
           <div className="noteOpened">
-            <span>User id: {openNote.userId}</span>
-            <h2>{openNote.title}</h2>
-            <p>{openNote.body}</p>
+            <h2>{note.title}</h2>
+            <p>{note.body}</p>
             <button
               className="backButton button"
               onClick={() => props.updatePage({ slug: "list", id: null })}
@@ -59,14 +67,24 @@ function Open(props) {
               </button>
             )}
           </div>
-          {props.userId && (<Comment userId={props.userId} />)}
+          {props.userId && <Comment userId={props.userId} />}
         </div>
       )}
 
       {editing && (
         <form className="editNote">
-          <textarea rows="20" defaultValue={openNote.body}></textarea>
-          <button className="saveButton button">Save</button>
+          <input
+            defaultValue={note.title}
+            onChange={e => setTitle(e.target.value)}
+          />
+          <textarea
+            rows="20"
+            defaultValue={note.body}
+            onChange={e => setBody(e.target.value)}
+          />
+          <button className="saveButton button" onClick={saveNote}>
+            Save
+          </button>
         </form>
       )}
     </div>
