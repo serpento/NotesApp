@@ -12,7 +12,7 @@ function Content(props) {
 
   return (
     <div className="App-content">
-      {page.slug === "list" && <List updatePage={updatePage} />}
+      {page.slug === "list" && <List updatePage={updatePage} {...page}/>}
       {page.slug === "open" && <Open updatePage={updatePage} {...page} />}
     </div>
   );
