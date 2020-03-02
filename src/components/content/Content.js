@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "./Content.css";
-import List from "./List.js";
-import Open from "./Open.js";
-import Registration from "./Registration.js";
+import List from "../list";
+import Open from "../open";
+import Registration from "../registration";
 
 function Content(props) {
   const [page, setPage] = useState({ slug: "list", id: null });

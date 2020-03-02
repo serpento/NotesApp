@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./List.css";
-import Create from "./Create.js"
+import Create from "../create"
 
 function List(props) {
 

@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import "abortcontroller-polyfill";
 import "./App.css";
-import Header from "./components/header/Header.js";
-import Content from "./components/content/Content.js";
-import Footer from "./components/footer/Footer.js";
+import Header from "../header";
+import Content from "../content";
+import Footer from "../footer";
 
 function App() {
   const [userID, setUserID] = useState(null);
