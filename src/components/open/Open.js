@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./Open.css";
-import Comment from "./Comment.js";
+import Comment from "./comment/Comment.js";
 
 function Open(props) {
   const [note, setNote] = useState({});
