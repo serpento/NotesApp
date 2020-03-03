@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import "./Comment.css";
+import "./comment.css";
 
 function Comment(props) {
   const [comments, setComments] = useState([]);
-
   const [comment, setComment] = useState("");
 
   function saveComment(e) {
@@ -12,8 +11,22 @@ function Comment(props) {
 
   function storeComment(e) {
     e.preventDefault();
+
     setComments([...comments, { text: comment, user: props.userId }]);
     setComment("");
+  }
+
+  function showComment (comment, i) {
+    return (
+        <li key={i.toString()}>
+            <span>
+              <b>{ comment.user }</b>
+            </span>
+
+            <hr />
+
+            <p>{ comment.text }</p>
+        </li>)
   }
 
   return (
@@ -21,23 +34,20 @@ function Comment(props) {
       <div>
         <p>
           <label>Comment:</label>
-          <textarea onChange={saveComment} value={comment} />
+          <textarea onChange={ saveComment } value={ comment } />
         </p>
 
-        <button className="saveButton button" onClick={storeComment}>
+        <button className="saveButton button" onClick={ storeComment }>
           Send
         </button>
+
       </div>
+
       <ul>
-        {comments.map((comment, i) => (
-          <li key={i.toString()}>
-            <span>
-              <b>{comment.user}</b>
-            </span>
-            <hr></hr> <p>{comment.text}</p>
-          </li>
-        ))}
+        {comments
+            .map(showComment)}
       </ul>
+
     </div>
   );
 }

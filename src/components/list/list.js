@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import "./List.css";
+import "./list.css";
 import Create from "../create"
 
 function List(props) {
@@ -10,6 +10,17 @@ function List(props) {
   function updateNotes(note) {
     setNotes([note, ...notes])
   }
+
+  function showNote(note) {
+        return (
+            <li key={note.id.toString()}>
+                <a
+                    href="#"
+                    onClick={() => props.updatePage({ slug: "open", id: note.id })}>
+                    { note.title } { note.id }
+                </a>
+            </li>);
+    }
 
   useEffect(() => {
     const abortController = new window.AbortController();
@@ -28,21 +39,15 @@ function List(props) {
   return (
       <div>
           <button className="button createNoteButton" onClick={() => setCreating(true)}> Create new note</button>         
-          {creating && (<Create updateNotes={updateNotes}/>)}
+          {creating && (<Create updateNotes={ updateNotes }/>)}
 
           <ul>
             {notes
               .filter(note => note.id !== props.id)
-              .map(note => (
-                <li key={note.id.toString()}>
-                  <a
-                    href="#"
-                    onClick={() => props.updatePage({ slug: "open", id: note.id })}>
-                    {note.title} {note.id}
-                  </a>
-                </li>
-              ))}
+              .map(showNote)
+            }
           </ul>
+
       </div>
   );
 }

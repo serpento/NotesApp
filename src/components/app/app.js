@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "abortcontroller-polyfill";
-import "./App.css";
+import "./app.css";
 import Header from "../header";
 import Content from "../content";
 import Footer from "../footer";

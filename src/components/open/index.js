@@ -1,3 +1,3 @@
-import Open from "./Open";
+import Open from "./open";
 
 export default Open;

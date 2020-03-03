@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Registration.css";
+import "./registration.css";
 
 function Registration(props) {
   const [userId, setUserId] = useState(null);
@@ -17,9 +17,9 @@ function Registration(props) {
     <div className="App-registration">
       <form>
         <label>What is your ID, man?</label>
-        <input type="text" onChange={saveUserId} />
+        <input type="text" onChange={ saveUserId } />
 
-        <button className="button" onClick={login}>
+        <button className="button" onClick={ login }>
           Enter
         </button>
       </form>

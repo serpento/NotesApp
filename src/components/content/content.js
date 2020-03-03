@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./Content.css";
+import "./content.css";
 import List from "../list";
 import Open from "../open";
 import Registration from "../registration";
@@ -15,15 +15,22 @@ function Content(props) {
     <div className="App-content">
       {page.slug !== "login" && !props.userId && (
         <p>
-          <a className="button enterButton" href="#" onClick={() => updatePage({ slug: "login", id: null })}>
+          <a
+            className="button enterButton"
+            href="#"
+            onClick={() => updatePage({ slug: "login", id: null })}
+          >
             Enter
           </a>
         </p>
       )}
+
       {page.slug === "list" && <List updatePage={updatePage} {...page} />}
+
       {page.slug === "open" && (
         <Open updatePage={updatePage} userId={props.userId} {...page} />
       )}
+
       {page.slug === "login" && (
         <Registration
           updatePage={updatePage}
